@@ -2,3 +2,15 @@
 main {
   min-height: 80vh;
 }
+
+/* adjusts the contents of the cards on Product.js */
+h3 {
+  padding: 1rem;
+}
+.rating span {
+  margin: 0.1 rem;
+}
+/* adjusts font size for the product screen description */
+.productscreen-des {
+  font-size: 0.5rem;
+}
