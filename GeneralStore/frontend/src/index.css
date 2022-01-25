@@ -1,0 +1,4 @@
+/* to drop footer to bottom of page */
+main {
+  min-height: 80vh;
+}
