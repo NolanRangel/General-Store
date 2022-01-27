@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 
 const Rating = ({ value, text, color }) => {
+    // console.log(value);
 
     // shows the star ratings
 
