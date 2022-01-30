@@ -1,24 +1,20 @@
 import express from 'express'
 const router = express.Router()
-import Product from '../models/productModel.js'
+import {
+    getProducts,
+    getProductById,
+} from '../controllers/productController.js'
 
 
 // home gets all
 // GET /api/products
 // public
-router.get('/', (req, res) => {
-    const products = Product.find({})
-        .then(products => res.json(products))
-        .catch(err => res.json(err))
-})
+router.route('/').get(getProducts)
+
 // get one product
 // GET /api/products/:id
 // public
-router.get('/:id', (req, res) => {
-    const product = Product.findById({ _id: req.params.id })
-        .then(product => res.json({ product: product }))
-        .catch(err => res.json(err))
-})
+router.route('/:id').get(getProductById)
 
 
 

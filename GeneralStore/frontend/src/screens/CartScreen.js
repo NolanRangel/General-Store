@@ -12,7 +12,7 @@ const CartScreen = ({ match, location, history }) => {
     const productId = match.params.id
 
     // retireves the ?qty=1 from the url
-    // .split retirievs the number at the end
+    // .split retirieves the number at the end
     const qty = location.search ? Number(location.search.split('=')[1]) : 1
     // console.log(qty);
 
@@ -26,7 +26,6 @@ const CartScreen = ({ match, location, history }) => {
         // console.log(productId, qty);
         if (productId) {
             dispatch(addToCart(productId, qty))
-
         }
     }, [dispatch, productId, qty])
 

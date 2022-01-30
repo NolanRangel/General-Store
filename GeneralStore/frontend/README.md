@@ -249,7 +249,30 @@
 
 34. Add To Cart Functionality
 
+    - 34/35/36 all CartScreen  cartReducer/constant/action
+
+
+
+
+```
+
+# 7 Backend user authentication
+
+```
+
+-37. Clean Up By Using Controllers
+
+    - added controller folder and product file
+    - split routes into controllers
+
+
+38. User Authentication Endpoint
+
     -
+
+
+
+*** Go back to # 45 to try and resolve bad error message on login screen 401
 
 
 

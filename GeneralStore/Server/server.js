@@ -4,6 +4,7 @@ import mongoose from './config/mongoose.config.js'
 
 
 import productRoutes from './routes/productRoutes.js'
+import userRoutes from './routes/userRoutes.js'
 // import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 
 
@@ -15,7 +16,8 @@ mongoose.connect(`${uri}`)
 
 const app = express();
 
-
+// allows us to accept JSON data in the body (authUser)
+app.use(express.json())
 
 
 
@@ -26,6 +28,7 @@ app.get('/', (req, res) => {
 
 
 app.use('/api/products', productRoutes)
+app.use('/api/users', userRoutes)
 
 
 // links to error middleware / did not update get one with errorMiddleware
