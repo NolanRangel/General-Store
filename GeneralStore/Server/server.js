@@ -5,7 +5,8 @@ import mongoose from './config/mongoose.config.js'
 
 import productRoutes from './routes/productRoutes.js'
 import userRoutes from './routes/userRoutes.js'
-// import { notFound, errorHandler } from './middleware/errorMiddleware.js'
+import orderRoutes from './routes/orderRoutes.js'
+import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 
 
 const uri = `mongodb+srv://rang1nol:Caliber1nol@generalstore.5m5sn.mongodb.net/GeneralStore?retryWrites=true&w=majority`
@@ -29,11 +30,14 @@ app.get('/', (req, res) => {
 
 app.use('/api/products', productRoutes)
 app.use('/api/users', userRoutes)
+app.use('/api/orders', orderRoutes)
+
+app.get('/api/config/paypal', (req, res) => res.send(process.env.PAYPAL_CLIENT_ID))
 
 
 // links to error middleware / did not update get one with errorMiddleware
-// app.use(notFound)
-// app.use(errorHandler)
+app.use(notFound)
+app.use(errorHandler)
 
 
 
