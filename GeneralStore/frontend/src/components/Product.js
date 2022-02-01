@@ -7,13 +7,14 @@ import Rating from '../components/Rating'
 
 
 const Product = ({ product }) => {
+    // console.log(product._id);
 
 
 
     return <div>
 
 
-        <Card className='my-3 p-3 rounded' style={{ width: '14rem' }}>
+        <Card className='my-3 p-3 rounded border shadow-lg' style={{ width: '18rem' }}>
 
             <Link to={`/product/${product._id}`}>
                 <Card.Img src={product.image} variant='top' />

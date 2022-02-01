@@ -1,6 +1,7 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import mongoose from './config/mongoose.config.js'
+import morgan from 'morgan'
 
 
 import productRoutes from './routes/productRoutes.js'
@@ -16,6 +17,10 @@ dotenv.config()
 mongoose.connect(`${uri}`)
 
 const app = express();
+
+if (process.env.NODE_ENV === 'development') {
+    app.use(morgan())
+}
 
 // allows us to accept JSON data in the body (authUser)
 app.use(express.json())

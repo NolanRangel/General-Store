@@ -1,14 +1,23 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import { productListReducer, productDetailsReducer } from './reducers/productReducers'
-import { cartReducer } from './reducers/cartReducers'
+import {
+    productListReducer,
+    productDetailsReducer,
+    productReviewCreateReducer
+} from './reducers/productReducers'
+
+import {
+    cartReducer
+} from './reducers/cartReducers'
+
 import {
     userLoginReducer,
     userRegisterReducer,
     userDetailsReducer,
     userUpdateProfileReducer,
 } from './reducers/userReducers'
+
 import {
     orderCreateReducer,
     orderDetailsReducer,
@@ -19,6 +28,7 @@ import {
 const reducer = combineReducers({
     productList: productListReducer,
     productDetails: productDetailsReducer,
+    productReviewCreate: productReviewCreateReducer,
     cart: cartReducer,
     userLogin: userLoginReducer,
     userRegister: userRegisterReducer,
@@ -27,7 +37,7 @@ const reducer = combineReducers({
     orderCreate: orderCreateReducer,
     orderDetails: orderDetailsReducer,
     orderPay: orderPayReducer,
-    orderListMy: orderListMyReducer
+    orderListMy: orderListMyReducer,
 
 
 })
@@ -36,25 +46,25 @@ const reducer = combineReducers({
 const cartItemsFromStorage = localStorage.getItem('cartItems')
     ? JSON.parse(localStorage.getItem('cartItems'))
     : []
-console.log(cartItemsFromStorage);
+// console.log(cartItemsFromStorage);
 
 //  user info localstorage check
 const userInfoFromStorage = localStorage.getItem('userInfo')
     ? JSON.parse(localStorage.getItem('userInfo'))
     : null
-console.log(userInfoFromStorage);
+// console.log(userInfoFromStorage);
 
 // shipping address from local storage
 const shippingAddressFromStorage = localStorage.getItem('shippingAddress')
     ? JSON.parse(localStorage.getItem('shippingAddress'))
     : []
-console.log(shippingAddressFromStorage);
+// console.log(shippingAddressFromStorage);
 
 // payment method from local storage
 const paymentMethodFromStorage = localStorage.getItem('paymentMethod')
     ? JSON.parse(localStorage.getItem('paymentMethod'))
     : []
-console.log(paymentMethodFromStorage);
+// console.log(paymentMethodFromStorage);
 
 
 const initialState = {
