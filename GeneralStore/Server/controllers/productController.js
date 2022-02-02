@@ -7,21 +7,30 @@ import Product from '../models/productModel.js'
 
 
 //  get all products
-const getProducts = (req, res) => {
-    const products = Product.find({})
-        .then(products => res.json(products))
-        .catch(err => res.json(err))
-}
+// GET /api/products
+// public
+const getProducts = asyncHandler(async (req, res) => {
+    const pageSize = 8
+    const page = Number(req.query.pageNumber) || 1
+
+    const keyWord = req.query.keyWord ? {
+        name: {
+            $regex: req.query.keyWord,
+            $options: 'i'
+        }
+    } : {}
+
+    const count = await Product.countDocuments({ ...keyWord })
+    const products = await Product.find({ ...keyWord }).limit(pageSize).skip(pageSize * (page - 1))
+
+    res.json({ products, page, pages: Math.ceil(count / pageSize) })
+
+})
 
 
-
-// get one product by id
-// const getProductById = (req, res) => {
-//     const product = Product.findById({ _id: req.params.id })
-//         .then(product => res.json({ product: product }))
-//         .catch(err => res.json(err))
-// }
-
+// get single product
+// GET /api/products/:id
+// public
 const getProductById = asyncHandler(async (req, res) => {
     const product = await Product.findById(req.params.id)
 
@@ -72,5 +81,23 @@ const createProductReview = asyncHandler(async (req, res) => {
 
 
 
+// get top rated products
+// GET /api/products/top
+// public
+const getTopProducts = asyncHandler(async (req, res) => {
+    const products = await Product.find({}).sort({ rating: -1 }).limit(5)
+    console.log(products);
 
-export { getProducts, getProductById, createProductReview }
+    res.json(products)
+
+})
+
+
+
+
+export {
+    getProducts,
+    getProductById,
+    createProductReview,
+    getTopProducts
+}
