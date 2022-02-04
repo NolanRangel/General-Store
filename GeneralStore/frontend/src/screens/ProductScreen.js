@@ -18,25 +18,27 @@ const ProductScreen = ({ history, match }) => {
     const [rating, setRating] = useState(0)
     const [comment, setComment] = useState('')
 
-
+    // allows for dispatch to be used
     const dispatch = useDispatch()
 
-
+    //  grabs product details from the current state in the store
     const productDetails = useSelector(state => state.productDetails)
     const { loading, error, product } = productDetails
-    console.log(product.reviews);
+    // console.log(product.reviews);
+
 
     const productReviewCreate = useSelector(state => state.productReviewCreate)
     const { success: successProductReview, error: errorProductReview } = productReviewCreate
 
-
+    // grabs the logged in users info from the current state in the store
     const userLogin = useSelector(state => state.userLogin)
     const { userInfo } = userLogin
 
 
     useEffect(() => {
+        //
         if (successProductReview) {
-            alert('Review Submitted!')
+            // alert('Review Submitted!')
             setRating(0)
             setComment('')
             dispatch({ type: PRODUCT_CREATE_REVIEW_RESET })
@@ -64,9 +66,9 @@ const ProductScreen = ({ history, match }) => {
 
 
 
-    return <div>
-        <Link className='btn btn-dark my-3' to='/'>
-            Go Back
+    return <div className=''>
+        <Link className='btn btn-light my-3 ' to='/'>
+            Go Home
         </Link>
         {loading
             ? <Loader />
@@ -74,7 +76,7 @@ const ProductScreen = ({ history, match }) => {
                 ? <Message variant='danger'>{error}</Message>
                 : (
                     <>
-                        <Row>
+                        <Row className='d-flex justify-content-center'>
                             <Col md={6} style={{ width: '250px', heigth: 'auto' }}>
                                 {/* fluid shrinks img into its container */}
                                 <Image src={product.image} alt={product.name} fluid />
@@ -127,6 +129,8 @@ const ProductScreen = ({ history, match }) => {
                                                     <Col>
                                                         <FormControl as='select' value={qty} onChange={(e) => setQty(e.target.value)}>
                                                             {
+                                                                // Array constructor spreads the in stock by the keys and then maps over them adding one to each index to give an actual value
+                                                                // google Array constructor js
                                                                 [...Array(product.countInStock).keys()].map((x) => (
                                                                     <option key={x + 1} value={x + 1}>
                                                                         {x + 1}
@@ -142,11 +146,10 @@ const ProductScreen = ({ history, match }) => {
                                         <ListGroup.Item>
                                             <Button
                                                 onClick={addToCartHandler}
-                                                className='btn-block'
+                                                className='btn-block '
                                                 type='button'
                                                 disabled={product.countInStock === 0}
                                             >
-
                                                 Add To Cart
                                             </Button>
                                         </ListGroup.Item>
@@ -155,9 +158,9 @@ const ProductScreen = ({ history, match }) => {
                             </Col>
                         </Row>
 
-                        < Row >
+                        < Row className='d-flex justify-content-center'>
                             <Col md={6}>
-                                <h2 className='mx-3'>Reviews</h2>
+                                <h2 className='mx-3 text-light'>Reviews</h2>
                                 {product.reviews.length === 0 && <Message>No Reviews</Message>}
                                 <ListGroup variant='flush'>
                                     {product.reviews.map((review, index) => (

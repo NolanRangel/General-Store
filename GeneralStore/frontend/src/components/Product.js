@@ -11,10 +11,10 @@ const Product = ({ product }) => {
 
 
 
-    return <div>
+    return <div className=''>
 
 
-        <Card className='my-3 p-3 rounded border border-dark ' style={{ width: '18rem' }}>
+        <Card className='my-3 p-3 rounded border border-dark shadow-lg border-2' style={{ width: '18rem' }}>
 
             <Link to={`/product/${product._id}`} className=' mx-4'>
                 <Card.Img src={product.image} variant='top' style={{ width: '200px', height: 'auto' }} className='rounded ' />

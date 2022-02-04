@@ -36,16 +36,14 @@ const CartScreen = ({ match, location, history }) => {
 
 
     const checkoutHandler = () => {
-        // history.push('/login/?redirect=/shipping')
-
         history.push('/login/?redirect=/shipping');
     }
 
 
     return <Row>
         <Col md={8}>
-            <h1>Shopping Cart</h1>
-            {cartItems.length === 0 ? (<Message>Your Cart Is Empty <Link to='/'></Link>Go Back</Message>) : (
+            <h1 className='text-light'>Shopping Cart</h1>
+            {cartItems.length === 0 ? (<Message><Link to='/'>Your Cart Is Empty</Link></Message>) : (
                 <ListGroup variant='flush'>
                     {cartItems.map(item => (
                         <ListGroup.Item key={item.product}>

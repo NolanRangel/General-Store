@@ -3,7 +3,7 @@ import { Alert } from 'react-bootstrap'
 
 
 
-const message = ({ variant, children }) => {
+const Message = ({ variant, children }) => {
 
 
     return <Alert variant={variant}>
@@ -13,9 +13,10 @@ const message = ({ variant, children }) => {
 
 };
 
-MessageChannel.defaultProps = {
+// originally MessageChannel
+Message.defaultProps = {
     variant: 'info',
 }
 
 
-export default message;
+export default Message;

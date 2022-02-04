@@ -1,5 +1,7 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
+// composeWithDevTools allows for the store to interrface with the redux dev tools extension
+// composeWithDevTools gets wrapped around the applyMiddleware funtion in the create store
 import { composeWithDevTools } from 'redux-devtools-extension'
 import {
     productListReducer,
@@ -26,6 +28,8 @@ import {
     orderListMyReducer,
 } from './reducers/orderReducers'
 
+
+// need to import combineReducers() to use it
 const reducer = combineReducers({
     productList: productListReducer,
     productDetails: productDetailsReducer,
@@ -69,14 +73,18 @@ const paymentMethodFromStorage = localStorage.getItem('paymentMethod')
 // console.log(paymentMethodFromStorage);
 
 
+// initial state
 const initialState = {
     cart: { cartItems: cartItemsFromStorage, shippingAddress: shippingAddressFromStorage },
     userLogin: { userInfo: userInfoFromStorage }
 }
 
-
+//  calls thunk so we can dispatch asynchronous actions aka post, put, get
 const middleware = [thunk]
 
+
+// creates the store and runs the reducers, initial state, 
+// thunk middleware allows us to call the dispatch function directly so we can make asyncronous requests
 const store = createStore(
     reducer,
     initialState,
@@ -86,3 +94,7 @@ const store = createStore(
 
 
 export default store
+
+// questions
+// 1. what is applyMiddleware
+// 2. better knowledge on thunk
