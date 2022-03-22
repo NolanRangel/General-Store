@@ -1,5 +1,9 @@
 # General-Store
 
+I built General-store using the MERN stack [MongoDB, Express, React, Node.js].
+In order to make the application scaleable I used Redux to manage global state and
+JSON web token to create a secure user experience.
+
 General-Store is an E-Commerce web application that allows users to create an account
 and browse listed items that are created by and admin user.
 
@@ -8,10 +12,6 @@ to their cart and purchase them through a secure PayPal API checkout.
 
 Admin users can Create, Edit and Delete products within a seperate Admin dashboard.
 They can also update order status for individual orders.
-
-I built the General-store using the MERN stack [MongoDB, Express, React, Node.js].
-In order to make the application scaleable I used Redux to manage global state and
-JSON web token to create a saecure user experience.
 
 Features:
 
