@@ -11,8 +11,7 @@ import Product from './models/productModel.js'
 import Order from './models/orderModel.js'
 
 
-// const uri = `mongodb+srv://rang1nol:Caliber1nol@generalstore.5m5sn.mongodb.net/test`
-const uri = `mongodb+srv://rang1nol:Caliber1nol@generalstore.5m5sn.mongodb.net/GeneralStore?retryWrites=true&w=majority`
+const uri = process.env.MONGO_URI;
 
 
 dotenv.config()
