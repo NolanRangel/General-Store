@@ -4,8 +4,7 @@ import mongoose from 'mongoose'
 
 const connectDB = async () => {
     try {
-        console.log(typeof process.env.MONGO_URI);
-        const conn = await mongoose.connect(process.env.MONGO_URI, {
+        const conn = await mongoose.connect("mongodb+srv:rang1nol:password1!@generalstore.5m5sn.mongodb.net/GeneralStore?retryWrites=true&w=majority", {
             useUnifiedTopology: true,
             useNewUrlParser: true,
             // useCreateIndex: true,
