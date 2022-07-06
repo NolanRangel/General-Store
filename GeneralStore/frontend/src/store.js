@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 // composeWithDevTools allows for the store to interrface with the redux dev tools extension
-// composeWithDevTools gets wrapped around the applyMiddleware funtion in the create store
+// composeWithDevTools gets wrapped around the applyMiddleware funtion in the create store 
 import { composeWithDevTools } from 'redux-devtools-extension'
 import {
     productListReducer,

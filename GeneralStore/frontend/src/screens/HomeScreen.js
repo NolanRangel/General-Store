@@ -41,7 +41,7 @@ const HomeScreen = ({ match }) => {
                 ? <Message variant='danger'>{error}</Message>
                 :
                 <>
-                    <Row className='mb-5'>
+                    <Row className='mb-5 gap-5'>
                         {products.map(product => (
                             <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
                                 <Product product={product} />
