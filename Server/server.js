@@ -18,7 +18,7 @@ connectDB()
 const app = express();
 
 if (process.env.NODE_ENV === 'development') {
-    app.use(morgan())
+    app.use(morgan('dev'))
 }
 
 // allows us to accept JSON data in the body (authUser)
