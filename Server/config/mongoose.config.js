@@ -1,10 +1,12 @@
 import mongoose from 'mongoose'
 
 
+const uri = "mongodb+srv:rang1nol:password1!@generalstore.5m5sn.mongodb.net/GeneralStore?retryWrites=true&w=majority";
+
 
 const connectDB = async () => {
     try {
-        const conn = await mongoose.connect("mongodb+srv:rang1nol:password1!@generalstore.5m5sn.mongodb.net/GeneralStore?retryWrites=true&w=majority", {
+        const conn = await mongoose.connect(uri, {
             useUnifiedTopology: true,
             useNewUrlParser: true,
             // useCreateIndex: true,
