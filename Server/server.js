@@ -1,7 +1,7 @@
 import express from 'express'
 import morgan from 'morgan'
 import path from 'path'
-import connectDB from './config/db.js'
+import connectDB from './config/mongoose.config'
 
 
 import productRoutes from './routes/productRoutes.js'
