@@ -1,7 +1,8 @@
-import express from 'express'
-import morgan from 'morgan'
 import path from 'path'
-import connectDB from './config/mongoose.config'
+import express from 'express'
+import dotenv from "dotenv";
+import morgan from 'morgan'
+import connectDB from './config/mongoose.config.js'
 
 
 import productRoutes from './routes/productRoutes.js'
@@ -10,6 +11,7 @@ import orderRoutes from './routes/orderRoutes.js'
 import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 
 
+dotenv.config()
 
 connectDB()
 
