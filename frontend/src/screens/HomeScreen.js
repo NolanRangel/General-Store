@@ -8,6 +8,7 @@ import Message from '../components/Message'
 import Loader from '../components/Loader'
 import Paginate from '../components/Paginate';
 import ProductCarousel from '../components/ProductCarousel';
+import Meta from '../components/Meta'
 import { listProducts } from '../actions/productActions';
 
 
@@ -33,6 +34,7 @@ const HomeScreen = ({ match }) => {
 
 
     return <>
+        <Meta />
         {!keyWord ? <ProductCarousel /> : <Link to='/' className='btn btn-light'>Home</Link>}
         <h1 className='text-light'> Latest Products</h1>
 
@@ -48,7 +50,7 @@ const HomeScreen = ({ match }) => {
                             </Col>
                         ))}
                     </Row>
-                    <Paginate pages={pages} page={page} kewWord={keyWord ? keyWord : ''} />
+                    <Paginate pages={pages} page={page} keyWord={keyWord ? keyWord : ''} />
                 </>
         }
 

@@ -8,6 +8,7 @@ import { PRODUCT_CREATE_REVIEW_RESET } from '../constants/productConstants'
 import Rating from '../components/Rating'
 import Loader from '../components/Loader';
 import Message from '../components/Message'
+import Meta from '../components/Meta'
 
 
 
@@ -43,9 +44,10 @@ const ProductScreen = ({ history, match }) => {
             setComment('')
             dispatch({ type: PRODUCT_CREATE_REVIEW_RESET })
         }
-
-        dispatch(listProductDetails(match.params.id))
-        // console.log();
+        if (!product._id || product._id !== match.params.id) {
+            dispatch(listProductDetails(match.params.id))
+            dispatch({ type: PRODUCT_CREATE_REVIEW_RESET })
+        }
     }, [dispatch, match, successProductReview])
 
 
@@ -78,6 +80,7 @@ const ProductScreen = ({ history, match }) => {
                 ? <Message variant='danger'>{error}</Message>
                 : (
                     <>
+                        <Meta title={product.name} />
                         <Row className='d-flex justify-content-center'>
                             <Col md={6} style={{ width: '250px', heigth: 'auto' }}>
                                 {/* fluid shrinks img into its container */}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Form, Button, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -34,7 +34,6 @@ const LoginScreen = ({ location, history }) => {
 
     const submitHandler = (e) => {
         e.preventDefault()
-        // DISPATCH LOGIN
         dispatch(login(email, password))
 
     }

@@ -4,35 +4,24 @@ import {
     addOrderItems,
     getOrderById,
     updateOrderToPaid,
+    updateOrderToDelivered,
     getMyOrders,
-
+    getOrders,
 } from '../controllers/orderController.js'
-import { protect } from '../middleware/authMiddleware.js'
+
+import { protect, admin } from '../middleware/authMiddleware.js'
 
 
 
-//  create new order
-//  POST /api/orders
-// private (needs Bearer token)
-router.route('/').post(protect, addOrderItems)
+router.route('/').post(protect, addOrderItems).get(protect, admin, getOrders)
 
-// get logged in users orders
-// GET /api/orders/myorders
-// private
 router.route('/myorders').get(protect, getMyOrders)
 
-// make sure to be at the bottom
-// GET /api/orders/:id
-// private (needs Bearer token)
 router.route('/:id').get(protect, getOrderById)
 
-// update order to paid
-// GET /api/orders/:id/pay
-// private
 router.route('/:id/pay').put(protect, updateOrderToPaid)
 
-
-
+router.route('/:id/deliver').put(protect, admin, updateOrderToDelivered)
 
 
 
