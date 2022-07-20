@@ -7,18 +7,22 @@ import {
     productListReducer,
     productDetailsReducer,
     productReviewCreateReducer,
-    productTopRatedReducer
+    productTopRatedReducer,
+    productDeleteReducer,
+    productCreateReducer,
+    productUpdateReducer,
 } from './reducers/productReducers'
 
-import {
-    cartReducer
-} from './reducers/cartReducers'
+import { cartReducer } from './reducers/cartReducers'
 
 import {
     userLoginReducer,
     userRegisterReducer,
     userDetailsReducer,
     userUpdateProfileReducer,
+    userListReducer,
+    userDeleteReducer,
+    userUpdateReducer,
 } from './reducers/userReducers'
 
 import {
@@ -26,6 +30,8 @@ import {
     orderDetailsReducer,
     orderPayReducer,
     orderListMyReducer,
+    orderDeliverReducer,
+    orderListReducer,
 } from './reducers/orderReducers'
 
 
@@ -33,6 +39,9 @@ import {
 const reducer = combineReducers({
     productList: productListReducer,
     productDetails: productDetailsReducer,
+    productDelete: productDeleteReducer,
+    productCreate: productCreateReducer,
+    productUpdate: productUpdateReducer,
     productReviewCreate: productReviewCreateReducer,
     productTopRated: productTopRatedReducer,
     cart: cartReducer,
@@ -40,10 +49,15 @@ const reducer = combineReducers({
     userRegister: userRegisterReducer,
     userDetails: userDetailsReducer,
     userUpdateProfile: userUpdateProfileReducer,
+    userList: userListReducer,
+    userDelete: userDeleteReducer,
+    userUpdate: userUpdateReducer,
     orderCreate: orderCreateReducer,
     orderDetails: orderDetailsReducer,
     orderPay: orderPayReducer,
     orderListMy: orderListMyReducer,
+    orderDeliver: orderDeliverReducer,
+    orderList: orderListReducer,
 
 
 })

@@ -4,34 +4,31 @@ import {
     authUser,
     registerUser,
     getUserProfile,
-    updateUserProfile
-
+    updateUserProfile,
+    getUsers,
+    deleteUser,
+    getUserById,
+    updateUser,
 } from '../controllers/userController.js'
-import { protect } from '../middleware/authMiddleware.js'
+import { protect, admin } from '../middleware/authMiddleware.js'
 
 
 
-// Register new user
-// POST /api/users
-// Public
-router.route('/').post(registerUser)
+router.route('/').post(registerUser).get(protect, admin, getUsers)
 
-// home gets authenticated user
-// POST
-// public
 router.post('/login', authUser)
 
-// Get user profile
-// GET /api/users/profile
-// private
-// runs authMiddleware
-router.route('/profile').get(protect, getUserProfile)
-
-//  update user profile
-//  PUT /api/users/register
-router.route('/profile').get(protect, getUserProfile).put(protect, updateUserProfile)
+router
+    .route('/profile')
+    .get(protect, getUserProfile)
+    .put(protect, updateUserProfile)
 
 
+router
+    .route('/:id')
+    .delete(protect, admin, deleteUser)
+    .get(protect, admin, getUserById)
+    .put(protect, admin, updateUser)
 
 
 

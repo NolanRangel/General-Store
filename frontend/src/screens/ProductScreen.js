@@ -8,6 +8,7 @@ import { PRODUCT_CREATE_REVIEW_RESET } from '../constants/productConstants'
 import Rating from '../components/Rating'
 import Loader from '../components/Loader';
 import Message from '../components/Message'
+import Meta from '../components/Meta'
 
 
 
@@ -36,16 +37,17 @@ const ProductScreen = ({ history, match }) => {
 
 
     useEffect(() => {
-        //
+        window.scrollTo(0, 0)
         if (successProductReview) {
             // alert('Review Submitted!')
             setRating(0)
             setComment('')
             dispatch({ type: PRODUCT_CREATE_REVIEW_RESET })
         }
-
-        dispatch(listProductDetails(match.params.id))
-        // console.log();
+        if (!product._id || product._id !== match.params.id) {
+            dispatch(listProductDetails(match.params.id))
+            dispatch({ type: PRODUCT_CREATE_REVIEW_RESET })
+        }
     }, [dispatch, match, successProductReview])
 
 
@@ -78,6 +80,7 @@ const ProductScreen = ({ history, match }) => {
                 ? <Message variant='danger'>{error}</Message>
                 : (
                     <>
+                        <Meta title={product.name} />
                         <Row className='d-flex justify-content-center'>
                             <Col md={6} style={{ width: '250px', heigth: 'auto' }}>
                                 {/* fluid shrinks img into its container */}
@@ -148,7 +151,7 @@ const ProductScreen = ({ history, match }) => {
                                         <ListGroup.Item>
                                             <Button
                                                 onClick={addToCartHandler}
-                                                className='btn-block '
+                                                className='btn-block'
                                                 type='button'
                                                 disabled={product.countInStock === 0}
                                             >
@@ -195,7 +198,7 @@ const ProductScreen = ({ history, match }) => {
                                                     <Form.Control as='textarea' row='3' value={comment} onChange={(e) => setComment(e.target.value)}>
                                                     </Form.Control>
                                                 </Form.Group>
-                                                <Button type='submit' variant='primary'>
+                                                <Button className='my-3' type='submit' variant='primary'>
                                                     Submit
                                                 </Button>
                                             </Form>

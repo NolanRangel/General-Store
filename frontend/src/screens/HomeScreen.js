@@ -8,6 +8,7 @@ import Message from '../components/Message'
 import Loader from '../components/Loader'
 import Paginate from '../components/Paginate';
 import ProductCarousel from '../components/ProductCarousel';
+import Meta from '../components/Meta'
 import { listProducts } from '../actions/productActions';
 
 
@@ -28,13 +29,15 @@ const HomeScreen = ({ match }) => {
 
     useEffect(() => {
         dispatch(listProducts(keyWord, pageNumber))
+        window.scrollTo(0, 0)
     }, [dispatch, keyWord, pageNumber])
 
 
 
     return <>
+        <Meta />
         {!keyWord ? <ProductCarousel /> : <Link to='/' className='btn btn-light'>Home</Link>}
-        <h1 className='text-light'> Latest Products</h1>
+        <h1 className=''> Latest Products</h1>
 
         {loading ? <Loader>Loading...</Loader>
             : error
@@ -48,7 +51,7 @@ const HomeScreen = ({ match }) => {
                             </Col>
                         ))}
                     </Row>
-                    <Paginate pages={pages} page={page} kewWord={keyWord ? keyWord : ''} />
+                    <Paginate pages={pages} page={page} keyWord={keyWord ? keyWord : ''} />
                 </>
         }
 
