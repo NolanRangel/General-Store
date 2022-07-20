@@ -14,13 +14,13 @@ const Product = ({ product }) => {
     return <div className=''>
 
 
-        <Card className='my-3 p-3 rounded border border-dark shadow-lg border-1  ' style={{ width: '18rem' }}>
+        <Card className='container px-3 col-7 mt-5 py-5 shadow-lg d-flex rounded' style={{ width: '18rem' }}>
 
             <Link to={`/product/${product._id}`} className=' mx-4'>
                 <Card.Img src={product.image} variant='top' style={{ width: '200px', height: 'auto' }} className='rounded ' />
             </Link>
 
-            <Card.Body>
+            <Card.Body >
 
                 <Link to={`/product/${product._id}`}>
                     <Card.Title as='div'><strong>{product.name}</strong></Card.Title>

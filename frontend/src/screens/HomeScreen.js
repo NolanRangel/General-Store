@@ -29,6 +29,7 @@ const HomeScreen = ({ match }) => {
 
     useEffect(() => {
         dispatch(listProducts(keyWord, pageNumber))
+        window.scrollTo(0, 0)
     }, [dispatch, keyWord, pageNumber])
 
 
@@ -36,7 +37,7 @@ const HomeScreen = ({ match }) => {
     return <>
         <Meta />
         {!keyWord ? <ProductCarousel /> : <Link to='/' className='btn btn-light'>Home</Link>}
-        <h1 className='text-light'> Latest Products</h1>
+        <h1 className=''> Latest Products</h1>
 
         {loading ? <Loader>Loading...</Loader>
             : error

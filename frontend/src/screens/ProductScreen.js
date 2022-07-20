@@ -37,7 +37,7 @@ const ProductScreen = ({ history, match }) => {
 
 
     useEffect(() => {
-        //
+        window.scrollTo(0, 0)
         if (successProductReview) {
             // alert('Review Submitted!')
             setRating(0)
@@ -151,7 +151,7 @@ const ProductScreen = ({ history, match }) => {
                                         <ListGroup.Item>
                                             <Button
                                                 onClick={addToCartHandler}
-                                                className='btn-block '
+                                                className='btn-block'
                                                 type='button'
                                                 disabled={product.countInStock === 0}
                                             >
@@ -198,7 +198,7 @@ const ProductScreen = ({ history, match }) => {
                                                     <Form.Control as='textarea' row='3' value={comment} onChange={(e) => setComment(e.target.value)}>
                                                     </Form.Control>
                                                 </Form.Group>
-                                                <Button type='submit' variant='primary'>
+                                                <Button className='my-3' type='submit' variant='primary'>
                                                     Submit
                                                 </Button>
                                             </Form>

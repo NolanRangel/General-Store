@@ -57,22 +57,22 @@ const LoginScreen = ({ location, history }) => {
                 </Form.Control>
             </Form.Group>
 
-            <Form.Group controlId='password'>
+            <Form.Group controlId='password' className='my-2'>
                 <Form.Label>Password</Form.Label>
                 <Form.Control type='password' placeholder='Enter Password..'
                     value={password} onChange={(e) => setPassword(e.target.value)}>
                 </Form.Control>
             </Form.Group>
 
-            <Button type='submit' variant='primary'>
+            <Button className='my-3' type='submit' variant='primary'>
                 Sign In
             </Button>
         </Form>
 
         <Row className='py-3'>
             <Col>
-                New Customer ?
-                <Link to={redirect ? `/register?redirect=${redirect}` : '/register'}>
+                New Customer?
+                <Link className='mx-2' to={redirect ? `/register?redirect=${redirect}` : '/register'}>
                     Register
                 </Link>
             </Col>

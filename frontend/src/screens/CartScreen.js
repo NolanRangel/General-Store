@@ -42,7 +42,7 @@ const CartScreen = ({ match, location, history }) => {
 
     return <Row>
         <Col md={8}>
-            <h1 className='text-light'>Shopping Cart</h1>
+            <h1 className=''>Shopping Cart</h1>
             {cartItems.length === 0 ? (<Message><Link to='/'>Your Cart Is Empty</Link></Message>) : (
                 <ListGroup variant='flush'>
                     {cartItems.map(item => (
