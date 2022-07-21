@@ -21,7 +21,7 @@ import {
 
 
 
-const OrderScreen = ({ match }) => {
+const OrderScreen = ({ match, history }) => {
     const orderId = match.params.id
     const [sdkReady, setSdkReady] = useState(false)
 
