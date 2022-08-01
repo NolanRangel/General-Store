@@ -8,7 +8,7 @@ import Product from '../models/productModel.js'
 // GET /api/products
 // public
 const getProducts = asyncHandler(async (req, res) => {
-    const pageSize = 8
+    const pageSize = 9
     const page = Number(req.query.pageNumber) || 1
 
     const keyWord = req.query.keyWord ? {
@@ -90,7 +90,11 @@ const getTopProducts = asyncHandler(async (req, res) => {
 
 })
 
+
+// POST /api/products
+// create product
 const createProduct = asyncHandler(async (req, res) => {
+    console.log(req);
     const product = new Product({
         name: 'Sample name',
         price: 0,

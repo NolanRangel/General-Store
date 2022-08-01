@@ -44,14 +44,15 @@ const HomeScreen = ({ match }) => {
                 ? <Message variant='danger'>{error}</Message>
                 :
                 <>
-                    <Row className='mb-5 gap-5'>
+                    <Paginate pages={pages} page={page} keyWord={keyWord ? keyWord : ''} />
+                    <Row className='mb-5 gap-5 d-flex justify-content-center'>
                         {products.map(product => (
                             <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
                                 <Product product={product} />
                             </Col>
                         ))}
                     </Row>
-                    <Paginate pages={pages} page={page} keyWord={keyWord ? keyWord : ''} />
+
                 </>
         }
 

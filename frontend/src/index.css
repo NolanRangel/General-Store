@@ -1,4 +1,5 @@
 /* to drop footer to bottom of page */
+
 main {
   min-height: 80vh;
 }
@@ -43,7 +44,7 @@ h2 {
 .carousel img {
   height: 300px;
   padding: 30px;
-  margin: 40px;
+  margin: 60px 40px;
   border-radius: 50%;
   margin-left: auto;
   margin-right: auto;

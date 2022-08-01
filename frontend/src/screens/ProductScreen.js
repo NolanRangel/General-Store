@@ -37,6 +37,7 @@ const ProductScreen = ({ history, match }) => {
 
 
     useEffect(() => {
+        // brings screen to top on page load
         window.scrollTo(0, 0)
         if (successProductReview) {
             // alert('Review Submitted!')

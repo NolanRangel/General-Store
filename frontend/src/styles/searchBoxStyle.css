@@ -1,0 +1,63 @@
+/* .form {
+    display: flex;
+    align-items: center;
+}
+
+.search {
+    display: flex;
+    margin-right: 80px;
+    gap: 25px;
+    width: 450px;
+} */
+
+.form form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.search {
+    position: relative;
+
+    margin-right: 40px;
+}
+
+.search .input-search {
+    background-color: #fff;
+    border: 0;
+    font-size: 18px;
+    padding: 15px;
+    height: 40px;
+    width: 40px;
+    transition: width 0.5s ease;
+}
+
+.btn-search {
+    background-color: #fff;
+    border: 0;
+    cursor: pointer;
+    font-size: 18px;
+    /* positions the search icon on the input */
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 40px;
+    width: 40px;
+    transition: transform 0.5s ease;
+}
+
+.btn-search:focus, input-search:focus {
+    outline: none;
+}
+
+/* if the search has an active class, then the input goes to... */
+.search.active .input-search {
+    width: 200px;
+}
+
+/* when search is active, this activates the transform property within .btn and moves the btn along the x axis 198px */
+.search.active .btn-search {
+    outline: none;
+    transform: translateX(190px);
+}

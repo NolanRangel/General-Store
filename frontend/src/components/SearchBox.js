@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap'
+import styles from '../styles/searchBoxStyle.css'
 
 
 
 
 const SearchBox = ({ history }) => {
     const [keyWord, setKeyWord] = useState('')
+    const [active, setActive] = useState(false)
 
 
 
@@ -19,22 +21,31 @@ const SearchBox = ({ history }) => {
         }
     }
 
+    const clickHandler = () => {
+        setActive(!active);
 
-    return <Form onSubmit={submitHandler} inline className='d-flex mx-5'>
-        <Form.Control
-            type='text'
-            name='q'
-            onChange={(e) => setKeyWord(e.target.value)}
-            placeholder='Search Products..'
-            className='mr-sm-2 ml-sm-5 mx-3 p-1'>
-        </Form.Control>
-        <Button type='submit' className='p-2' variant='outline-success'>
-            Search
-        </Button>
+    }
+
+    return <Form onSubmit={submitHandler} className={`search ${active ? "active" : ""}`}>
+        <div >
+            <Form.Control
+                type='text'
+                name='q'
+                onChange={(e) => setKeyWord(e.target.value)}
+                placeholder='Search Products..'
+                className='input-search'>
+            </Form.Control>
+            <Button type='submit'
+                className='btn-search fas fa-search'
+                variant='outline-success'
+                onMouseEnter={clickHandler}
+            >
+            </Button>
+        </div>
 
 
 
-    </Form>;
+    </Form >;
 
 
 };
